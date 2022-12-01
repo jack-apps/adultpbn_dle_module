@@ -1,6 +1,11 @@
 <?php
 
 // Путь к скаченному файлу links.php (относительно корня, там где index.php)
+// Данный файл желательно держать в отдельной папке, например adultpbn
+// Также необходимо выставить 766 права на папку, чтобы биржа имела
+// возможность записывать кеш файлы и другую информацию
+// Если права будут выставлены неверные, то при включеном режиме debug
+// на месте вывода ссылок будет сообщение о необходимости выставить права
 const __LINKS_FILE = 'adultpbn/links.php';
 
 // API ключ выданный биржей adultpbn, по умолчанию он помещается внутрь файла
@@ -73,9 +78,14 @@ if ($__params['debug']) {
 }
 
 $__linksFile = ROOT_DIR . '/' . trim(__LINKS_FILE, '/');
+$__linksFileDir = dirname($__linksFile);
 
 if (file_exists($__linksFile)) {
     require_once $__linksFile;
+
+    if (is_writable($__linksFileDir) === false && $__params['debug']) {
+        echo "Необходимо указать права на запись (766) для $__linksFileDir";
+    }
 } else {
     if ($__params['debug']) {
         echo 'Указан неверный путь к файлу links.php ('.__LINKS_FILE.')';

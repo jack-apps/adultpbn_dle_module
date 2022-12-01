@@ -20,9 +20,6 @@ const __DOMAIN = '';
 // По умолчанию кодировка сайта берется из конфига DLE, но можно указать и тут
 const __ENCODING = '';
 
-// Период жизни кеша в часах, период считается от создания кеша, если указать 0 то кеш ссылок отключится
-const __LIFE = 1;
-
 // Если true то все ссылки по умолчанию будут открываться в новой вкладке
 const __BLANK = false;
 
@@ -54,7 +51,6 @@ $__params = [
     'delimiter'  =>  $delimiter  ??  __DELIMITER,
     'domain'     =>  $domain     ??  __DOMAIN,
     'encoding'   =>  $encoding   ??  __ENCODING,
-    'life'       =>  $life       ??  __LIFE,
     'blank'      =>  $blank      ??  __BLANK,
     'log'        =>  $log        ??  __LOG,
     'debug'      =>  $debug      ??  false,
@@ -112,13 +108,6 @@ if (empty($__params['encoding'])) {
 
 $__init->domain($__params['domain']);
 $__init->encoding($__params['encoding']);
-
-
-if ($__params['life'] < 1) {
-    $__init->cache(0);
-} else {
-    $__init->cache($__params['life']);
-}
 
 if ($__params['blank']) {
     $__init->targetBlank();
@@ -187,16 +176,6 @@ switch ($__params['place']) {
             ->delimiter($__params['delimiter'])
             ->wrap($__params['wstart'], $__params['wend'])
             ->get();
-}
-
-if ($__params['debug']) {
-    $result = $__urls->lb->isSuccess(true);
-
-    if ($result === true) {
-        echo '';
-    }
-
-    echo '<pre>'; var_dump($result); echo '</pre>';
 }
 
 echo $__links;

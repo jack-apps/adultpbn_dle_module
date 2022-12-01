@@ -6,11 +6,13 @@
 
 ### Установка
 1. Создать в корне сайта папку **adultpbn** и закинуть в нее скачанный с биржи файл **links.php**
-2. Закинуть файл **adultpbn.php** в **engine/modules**
-3. Ознакомиться [как передавать параметры](#передача-параметров) модулю
-4. Ознакомиться какие есть [параметры](#доступные-параметры-для-передачи)
-5. Подготовить include и вставить его в нужное место шаблона
-6. При необходимости переопределить [константы](#константы-в-файле-adultpbnphp) в самом вверху файла **adultpbn.php**
+2. Выставить права (**777**) на папку **adultpbn** и файл **links.php** 
+3. Закинуть файл **adultpbn.php** или **win1251/adultpbn.php** (_в зависимости от кодировки сайта_) из данного 
+   репозитория в **engine/modules**
+4. Ознакомиться [как передавать параметры](#передача-параметров) модулю
+5. Ознакомиться какие есть [параметры](#доступные-параметры-для-передачи)
+6. Подготовить include и вставить его в нужное место шаблона
+7. При необходимости переопределить [константы](#константы-в-файле-adultpbnphp) в самом вверху файла **adultpbn.php**
 
 
 ### Передача параметров
@@ -18,13 +20,13 @@
 первый параметр должен начинаться со знака **?**, последующие со знака **&**
 
 Пример передачи одного параметра
-> {include file="engine/modules/adultpbn.php`?place`=sidebar"}
+> {include file="engine/modules/adultpbn.php?place=sidebar"}
 
 Пример передачи двух параметров
-> {include file="engine/modules/adultpbn.php`?place`=sidebar`&blank`=true"}
+> {include file="engine/modules/adultpbn.php?place=sidebar&blank=true"}
 
 Пример передачи трех параметров
-> {include file="engine/modules/adultpbn.php`?place`=sidebar`&blank`=true`&delimiter`=<\br>"}
+> {include file="engine/modules/adultpbn.php?place=sidebar&blank=true&delimiter=<\br>"}
 
 
 ### Доступные параметры для передачи

@@ -103,7 +103,7 @@ if (empty(__API_KEY) && isset(LBHelper::init()->params['api_key'])) {
 }
 
 if (empty($__params['domain'])) {
-    $__params['domain'] = trim($config['http_home_url'], '/');
+    $__params['domain'] = parse_url($config['http_home_url'], PHP_URL_HOST);
 }
 
 if (empty($__params['encoding'])) {

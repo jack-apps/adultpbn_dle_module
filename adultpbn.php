@@ -98,8 +98,11 @@ if (empty(__API_KEY) && isset(LBHelper::init()->params['api_key'])) {
     return;
 }
 
-if (empty($__params['domain'])) {
+
+if (empty($__params['domain']) && ! empty(trim($config['http_home_url'], '/'))) {
     $__params['domain'] = parse_url($config['http_home_url'], PHP_URL_HOST);
+} elseif (! empty($_SERVER['SERVER_NAME'])) {
+    $__params['domain'] = $_SERVER['SERVER_NAME'];
 }
 
 if (empty($__params['encoding'])) {
@@ -133,7 +136,9 @@ if (__DISABLE_CURL) {
     $__init->disableCurl();
 }
 
-
+if (isset($_GET['debug'])) {
+    echo '<pre>'; var_dump($__init); echo '</pre>';
+}
 /**
  * =================================
  *           Вывод ссылок

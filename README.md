@@ -2,7 +2,7 @@
 Небольшой модуль для DLE более удобного вывода ссылок c биржи [adultpbn](https://adultpbn.com/)
 
 ### Требования
-1. php версии 7.4 и выше
+* PHP версии 7.4 и выше
 
 ### Установка
 1. Создать в корне сайта папку **adultpbn** и закинуть в нее скачанный с биржи файл **links.php**
@@ -18,13 +18,13 @@
 первый параметр должен начинаться со знака **?**, последующие со знака **&**
 
 Пример передачи одного параметра
-> {include file="engine/modules/adultpbn.php?place=sidebar"}
+> {include file="engine/modules/adultpbn.php`?place`=sidebar"}
 
 Пример передачи двух параметров
-> {include file="engine/modules/adultpbn.php?place=sidebar&blank=true"}
+> {include file="engine/modules/adultpbn.php`?place`=sidebar`&blank`=true"}
 
 Пример передачи трех параметров
-> {include file="engine/modules/adultpbn.php?place=sidebar&blank=true&delimiter=<\br>"}
+> {include file="engine/modules/adultpbn.php`?place`=sidebar`&blank`=true`&delimiter`=<\br>"}
 
 
 ### Доступные параметры для передачи

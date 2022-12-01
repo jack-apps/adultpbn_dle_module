@@ -1,5 +1,5 @@
 ## AdultPbn DLE Module
-Небольшой модуль для DLE более удобного вывода ссылок c биржи [adultpbn](https://adultpbn.com/)
+Небольшой модуль DLE для более удобного вывода ссылок c биржи [adultpbn](https://adultpbn.com/)
 
 ### Требования
 * PHP версии 7.4 и выше
